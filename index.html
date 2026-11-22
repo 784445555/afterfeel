@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Afterfeel — год в цвете</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 50'%3E%3Crect width='40' height='50' fill='%23c9814a'/%3E%3Crect x='5' y='8' width='30' height='9' fill='%23e8c79a'/%3E%3Crect x='5' y='20' width='30' height='20' fill='%237a4a2c'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+    <script type="module" crossorigin src="./assets/index-CRZ67kSk.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-B5HuI3Oe.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- Художественные приёмы, которые применяются к самим фото (и на экране, и в экспорте) -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <filter id="af-monet" x="-4%" y="-4%" width="108%" height="108%" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency="0.016 0.028" numOctaves="2" seed="4" result="n" />
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="10" xChannelSelector="R" yChannelSelector="G" result="d" />
+        <feGaussianBlur in="d" stdDeviation="0.7" result="soft" />
+        <feGaussianBlur in="soft" stdDeviation="7" result="glow" />
+        <feComponentTransfer in="glow" result="glow2"><feFuncA type="linear" slope="0.45" /></feComponentTransfer>
+        <feBlend in="soft" in2="glow2" mode="screen" />
+      </filter>
+      <filter id="af-poster" color-interpolation-filters="sRGB">
+        <feComponentTransfer>
+          <feFuncR type="discrete" tableValues="0.05 0.3 0.58 0.92" />
+          <feFuncG type="discrete" tableValues="0.06 0.32 0.6 0.93" />
+          <feFuncB type="discrete" tableValues="0.1 0.38 0.66 0.96" />
+        </feComponentTransfer>
+      </filter>
+      <filter id="af-ink" color-interpolation-filters="sRGB">
+        <feColorMatrix type="saturate" values="0.22" />
+        <feComponentTransfer>
+          <feFuncR type="linear" slope="0.78" intercept="0.14" />
+          <feFuncG type="linear" slope="0.78" intercept="0.14" />
+          <feFuncB type="linear" slope="0.76" intercept="0.16" />
+        </feComponentTransfer>
+      </filter>
+      <filter id="af-film" color-interpolation-filters="sRGB">
+        <feComponentTransfer result="faded">
+          <feFuncR type="linear" slope="0.88" intercept="0.08" />
+          <feFuncG type="linear" slope="0.86" intercept="0.06" />
+          <feFuncB type="linear" slope="0.78" intercept="0.07" />
+        </feComponentTransfer>
+        <feGaussianBlur in="faded" stdDeviation="4" result="hal" />
+        <feColorMatrix in="hal" type="matrix" values="1 0 0 0 0.05  0 0.45 0 0 0  0 0 0.3 0 0  0 0 0 0.35 0" result="red" />
+        <feBlend in="faded" in2="red" mode="screen" />
+      </filter>
+    </svg>
+  </body>
+</html>
