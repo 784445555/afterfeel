@@ -1,0 +1,154 @@
+/* ================= v3: год, импорт, книга ================= */
+.nav { display: flex; align-items: center; gap: 22px; }
+.menu-wrap { position: relative; }
+.menu { position: absolute; right: 0; top: calc(100% + 10px); background: #f7f4ef; border: 1px solid var(--line); border-radius: 6px; padding: 6px; z-index: 5; min-width: 260px; box-shadow: 0 18px 40px -22px rgba(0, 0, 0, 0.35); }
+.menu button { display: block; width: 100%; text-align: left; padding: 10px 12px; font-size: 17px; border-radius: 4px; }
+.menu button:hover { background: rgba(28, 26, 23, 0.06); }
+.btn.ghost { background: none; color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+.link.muted { color: var(--mute); }
+.section-h { font-family: var(--mono); font-weight: 400; font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mute); margin: 0 0 22px; }
+
+.hero { margin: 8vh 0 5vh; max-width: 900px; }
+.hero h1 { font-weight: 400; font-size: clamp(56px, 9vw, 128px); line-height: 0.9; letter-spacing: -0.03em; margin: 0 0 22px; }
+.hero h1 em { color: var(--mute); }
+.hero h1 select { font: inherit; letter-spacing: inherit; border: 0; background: none; color: inherit; cursor: pointer; padding: 0; appearance: none; }
+.hero p { font-size: 21px; line-height: 1.45; color: #5c564e; max-width: 600px; margin: 0; }
+.hero .empty { margin-top: 36px; }
+
+.lookback { display: grid; grid-template-columns: 120px 1fr; gap: 26px; align-items: center; padding: 22px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-bottom: 52px; }
+.lb-art { display: block; }
+.lookback h2 { font-weight: 400; font-style: italic; font-size: 36px; line-height: 1.05; margin: 8px 0 16px; }
+.lookback .mono { color: var(--mute); opacity: 1; }
+.lb-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 22px; }
+
+.ygrid { overflow-x: auto; padding: 8px 4px 6px; margin: 0 -4px 72px; }
+.yg-row { display: grid; grid-template-columns: 40px repeat(31, minmax(12px, 1fr)); gap: 4px; margin-bottom: 4px; min-width: 620px; }
+.yg-head span { font-family: var(--mono); font-size: 10px; color: var(--mute); text-align: center; }
+.yg-m { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mute); align-self: center; }
+.yg-c { aspect-ratio: 4 / 5; border-radius: 2px; background: rgba(28, 26, 23, 0.045); display: block; padding: 0; }
+.yg-c.none { background: none; }
+.yg-c.future { background: rgba(28, 26, 23, 0.03); }
+.yg-c.today { outline: 1.5px solid var(--ink); outline-offset: 1px; }
+.yg-c.on { cursor: pointer; transition: transform 0.2s; }
+.yg-c.on:hover { transform: scale(1.5); position: relative; z-index: 2; }
+
+/* импорт */
+.drop { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; text-align: center; margin: 6vh 0 40px; min-height: 46vh; border: 1px dashed rgba(28, 26, 23, 0.35); border-radius: 10px; cursor: pointer; padding: 32px; transition: background 0.2s, border-color 0.2s; }
+.drop.small { min-height: 0; margin: 28px 0; padding: 18px; }
+.drop.over { background: rgba(28, 26, 23, 0.05); border-color: var(--ink); }
+.drop input { display: none; }
+.drop-title { font-size: clamp(26px, 3.2vw, 40px); line-height: 1.1; }
+.drop.small .drop-title { font-size: 20px; }
+.drop-sub { font-size: 19px; color: var(--mute); max-width: 520px; line-height: 1.4; }
+.common { margin-bottom: 36px; max-width: 640px; }
+.common h3 { font-family: var(--mono); font-weight: 400; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mute); margin: 0 0 10px; }
+.drafts { display: grid; gap: 28px; }
+.draft { display: grid; grid-template-columns: 200px 1fr; gap: 32px; padding: 24px 0; border-top: 1px solid var(--line); align-items: start; }
+.draft-body { display: grid; gap: 16px; min-width: 0; }
+.draft-head { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.draft-head input[type="date"] { border: 0; background: none; font-family: var(--mono); font-size: 12px; }
+.draft-head .hint { margin: 0; flex: 1; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips button { font-size: 17px; padding: 6px 14px; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--line); transition: background 0.2s, color 0.2s, box-shadow 0.2s; }
+.chips button:hover { box-shadow: inset 0 0 0 1px var(--ink); }
+.chips button.on { background: var(--ink); color: var(--paper); box-shadow: none; }
+.line-in { width: 100%; border: 0; border-bottom: 1px solid var(--line); background: none; outline: none; font-size: 20px; padding: 4px 0 10px; }
+.save-row.sticky { position: sticky; bottom: 0; background: linear-gradient(transparent, var(--paper) 30%); padding: 28px 0 22px; margin-top: 10px; }
+
+/* книга */
+.book-wrap { max-width: 1100px; margin: 0 auto; padding: 24px 40px 80px; }
+.book-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; position: sticky; top: 0; background: var(--paper); padding: 12px 0; z-index: 3; }
+.book-bar .mono { color: var(--mute); opacity: 1; }
+.book-note { font-size: 17px; color: var(--mute); margin: 4px 0 28px; max-width: 640px; }
+.book { display: grid; gap: 28px; justify-items: center; }
+.spread { display: grid; grid-template-columns: repeat(2, minmax(0, 400px)); box-shadow: 0 30px 60px -36px rgba(0, 0, 0, 0.5); }
+.page { aspect-ratio: 4 / 5; width: 100%; max-width: 400px; background: #fbf9f5; position: relative; overflow: hidden; }
+.cover { box-shadow: 0 30px 60px -36px rgba(0, 0, 0, 0.5); padding: 9%; display: flex; flex-direction: column; background: var(--ink); color: #efeae2; }
+.cover .mono { opacity: 0.6; }
+.cover h1 { font-weight: 400; font-size: 64px; line-height: 0.92; margin: auto 0 22px; }
+.cover h1 em { opacity: 0.65; }
+.cover.end h1 { font-size: 38px; line-height: 1.1; margin: auto 0; }
+.cover-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 4px; margin-bottom: 18px; }
+.cover-grid i { aspect-ratio: 4 / 5; border-radius: 1px; }
+.cover-sub { font-size: 16px; opacity: 0.7; margin: 0; }
+.art-page img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.text-page { padding: 10% 9%; display: flex; flex-direction: column; color: var(--ink); }
+.text-page .mono { color: var(--mute); opacity: 1; font-size: 9.5px; }
+.text-page h2 { font-weight: 400; font-style: italic; font-size: 30px; line-height: 1.05; margin: 12px 0 14px; }
+.text-page .entry { font-size: 15.5px; line-height: 1.5; margin: 0; color: #3b3732; }
+.sw-row { display: flex; gap: 4px; margin: 18px 0 0; }
+.sw-row i { width: 16px; height: 16px; border-radius: 2px; }
+.book-song { margin-top: auto; display: flex; align-items: center; gap: 14px; }
+.book-song img { width: 64px; height: 64px; }
+.book-song div { display: flex; flex-direction: column; gap: 2px; font-size: 15px; }
+.book-song span { font-family: var(--mono); font-size: 9.5px; color: var(--mute); }
+.book-song .hint { margin: 4px 0 0; font-size: 9.5px; }
+
+.toast { position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%); background: var(--ink); color: var(--paper); padding: 12px 20px; border-radius: 999px; font-family: var(--mono); font-size: 12px; z-index: 80; }
+
+@media print {
+  @page { size: 200mm 250mm; margin: 0; }
+  html, body { background: #fff; }
+  .book-bar, .book-note { display: none !important; }
+  .book-wrap { padding: 0; max-width: none; }
+  .book { display: block; }
+  .spread { display: block; box-shadow: none; }
+  .page, .cover { width: 200mm; height: 250mm; max-width: none; aspect-ratio: auto; break-after: page; box-shadow: none; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .text-page { padding: 22mm 20mm; }
+  .text-page h2 { font-size: 34pt; }
+  .text-page .entry { font-size: 13pt; }
+  .cover h1 { font-size: 72pt; }
+}
+
+@media (max-width: 860px) {
+  .year .top { flex-wrap: wrap; row-gap: 14px; }
+  .nav { gap: 16px; flex-wrap: wrap; width: 100%; justify-content: space-between; }
+  .nav .btn { order: -1; width: 100%; text-align: center; }
+  .menu { right: auto; left: 0; }
+  /* весь год на одном экране, как в Daylio: клетки сжимаются, а не уезжают вбок */
+  .ygrid { overflow: visible; margin: 0 0 48px; padding: 0; }
+  .yg-row { grid-template-columns: 26px repeat(31, minmax(0, 1fr)); gap: 2px; margin-bottom: 2px; min-width: 0; }
+  .yg-head span { font-size: 8px; }
+  .yg-m { font-size: 8.5px; letter-spacing: 0; }
+  .yg-c { border-radius: 1px; }
+  .yg-c.on:hover { transform: none; }
+  .hero { margin: 5vh 0 4vh; }
+  .hero p { font-size: 18px; }
+  .lookback { grid-template-columns: 90px 1fr; gap: 16px; }
+  .lookback h2 { font-size: 26px; }
+  .draft { grid-template-columns: 1fr; }
+  .draft-art { max-width: 220px; }
+  .spread { grid-template-columns: 1fr; }
+  .book-wrap { padding: 16px; }
+}
+
+/* поделиться днём */
+.share { margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(255, 255, 255, 0.14); display: grid; gap: 14px; }
+.share .mono { font-size: 10.5px; }
+.share-kinds { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.share-kinds button { display: flex; flex-direction: column; gap: 4px; text-align: left; padding: 12px; border-radius: 6px; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2); transition: box-shadow 0.2s, background 0.2s; }
+.share-kinds button:hover, .share-kinds button.on { box-shadow: inset 0 0 0 1px #efeae2; background: rgba(255, 255, 255, 0.06); }
+.share-kinds b { font-weight: 500; font-size: 17px; }
+.share-kinds span { font-family: var(--mono); font-size: 10px; opacity: 0.6; }
+.share-busy { position: relative; height: 34px; border-radius: 4px; overflow: hidden; background: rgba(255, 255, 255, 0.08); }
+.share-busy i { position: absolute; inset: 0 auto 0 0; background: rgba(255, 255, 255, 0.18); transition: width 0.2s linear; }
+.share-busy span { position: relative; font-family: var(--mono); font-size: 11px; line-height: 34px; padding: 0 12px; }
+.share-out { display: grid; grid-template-columns: 120px 1fr; gap: 14px; align-items: start; }
+.share-out img, .share-out video { width: 100%; border-radius: 4px; display: block; background: #000; }
+.share-side { display: grid; gap: 10px; }
+.share-side textarea { width: 100%; resize: none; background: rgba(255, 255, 255, 0.06); border: 0; border-radius: 4px; padding: 10px; font-size: 15px; line-height: 1.35; color: inherit; }
+.share-side .hint { color: rgba(239, 234, 226, 0.6); margin: 0; }
+.share-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.day .share .btn { background: #efeae2; color: #1c1a17; }
+.day .share + .hint, .share > .hint { color: rgba(239, 234, 226, 0.65); margin: 0; }
+
+/* приёмы v4 */
+.p-photo { position: absolute; overflow: hidden; }
+.p-blob { position: absolute; aspect-ratio: 1; opacity: 0.9; transition: filter 2.5s; pointer-events: none; }
+.p-quote { position: absolute; display: flex; align-items: center; font-family: "Caveat", cursive; font-weight: 500; line-height: 1.05; opacity: 0; transform: rotate(-1.5deg); transition: opacity 2s ease 3.4s; pointer-events: none; text-wrap: balance; }
+.is-focus .p-quote { opacity: 1; }
+.tile .p-quote, .lb-art .p-quote { display: none; }
+
+/* пульс песни: громкость управляет светом и дыханием картины */
+.day-stage .painting { transform: scale(calc(1 + var(--amp, 0) * 0.018)); filter: brightness(calc(0.96 + var(--amp, 0) * 0.16)); transition: transform 0.08s linear, filter 0.08s linear; }
+.day-stage .p-field { opacity: calc(0.82 + var(--amp, 0) * 0.5); }
